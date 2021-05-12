@@ -22,11 +22,9 @@ public class Moving : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-
+                targetTileTransform = hit.transform;
                 if (targetTileTransform != null && targetTileTransform.CompareTag("Tile"))
-                {
-                    print("so it is: " + targetTileTransform.tag);
-                    targetTileTransform = hit.transform;
+                {    
                     Move();
                 }
             }
