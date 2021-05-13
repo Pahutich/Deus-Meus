@@ -6,6 +6,7 @@ using UnityEngine;
 public class TileMap : MonoBehaviour
 {
     public TileType[] tileTypes;
+    private GameObject[] tileCoordinates;
 
     int[,] tiles;
 
@@ -18,6 +19,7 @@ public class TileMap : MonoBehaviour
     {
         GenerateMapData();
         GenerateMapVisual();
+        tileCoordinates = GameObject.FindGameObjectsWithTag("Tile Coordinates");
     }
 
     private void GenerateMapData()
@@ -90,6 +92,13 @@ public class TileMap : MonoBehaviour
     }
     void Update()
     {
-        
+    }
+
+    public void ShowCoordinates()
+    {
+        for (int i = 0; i < tileCoordinates.Length; i++)
+        {
+            tileCoordinates[i].SetActive(!tileCoordinates[i].activeSelf);
+        }
     }
 }
